@@ -60,7 +60,30 @@ html {
 --accent-950: #040f16;
 }
 
+.tirra-regular {
+  font-family: "Tirra", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bungee-regular {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
     color: var(--text-900);
-    background: var(--background-100);
+    font-family: "Tirra";
+    background: var(--background-50);
+}
+
+h2, h3 {
+    color:var(--text-700);
+    font-family: "Bungee";
+}
+
+h1 {
+    color:var(--text-900);
+    font-family: "bungee";
 }
