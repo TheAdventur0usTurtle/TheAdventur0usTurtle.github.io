@@ -60,30 +60,23 @@ html {
 --accent-950: #040f16;
 }
 
-.tirra-regular {
-  font-family: "Tirra", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.bungee-regular {
-  font-family: "Bungee", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 body {
     color: var(--text-900);
     font-family: "Tirra";
     background: var(--background-50);
+    font-size: 20px;
 }
 
 h2, h3 {
     color:var(--text-700);
-    font-family: "Bungee";
+    font-family: "Tirra";
+    font-weight: 600;
+    font-size: 35px;
 }
 
 h1 {
     color:var(--text-900);
-    font-family: "bungee";
+    font-family: "Lexend";
+    font-weight: 500;
+    font-size: 90px;
 }
