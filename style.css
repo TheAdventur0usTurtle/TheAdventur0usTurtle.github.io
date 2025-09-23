@@ -60,6 +60,15 @@ html {
 --accent-950: #040f16;
 }
 
+p, li {
+ text-decoration: underline dotted #dbcca0;
+}
+
+a {
+    color: var(--accent-600);
+    text-decoration-skip-ink: auto;
+}
+
 body {
     color: var(--text-900);
     font-family: "Tirra";
