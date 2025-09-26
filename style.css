@@ -67,6 +67,7 @@ html {
 p, li {
  text-decoration: underline dotted #dbcca0;
  margin-left: 15px;
+ max-width: 400px;
 }
 
 a {
@@ -87,19 +88,22 @@ h2, h3 {
     font-weight: 600;
     font-size: 35px;
     margin-left: 10px;
+    padding: 0px;
+    border: 0px;
+    max-width: 450px;
 }
 
 h1 {
     color:var(--text-900);
     font-family: "Lexend";
     font-weight: 500;
-    font-size: 90px;
-    margin-bottom: auto;
+    font-size: 82px;
+    margin-bottom: 30px;
     margin-left: 23px;
-    margin-top: 13px;
+    margin-top: 43px;
     padding: 0px;
     border: 0px;
-
+    max-width: 500px;
 }
 
 .single-border {
@@ -112,23 +116,25 @@ h1 {
 
 img{
     margin: 30px;
+    max-width: 300px;
 }
 
 .align-center {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     
 }
 
 .align-right {
     display: flex;
-    justify-content: flex-start;
-    max-width: 500px;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .align-left{
     display: flex;
-    justify-content: flex-end;
-    max-width: 500px;
-
+    flex-direction: column;
+    align-items: flex-start;
 }
+
