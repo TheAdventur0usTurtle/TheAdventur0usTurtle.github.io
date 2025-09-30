@@ -60,9 +60,15 @@ html {
 --accent-950: #040f16;
 }
 
+/*
 *{
-    /* border: 1px solid red; */
+     border: 1px solid red;
 }
+
+div {
+    border: 2px solid green;
+}
+*/
 
 p, li {
  text-decoration: underline dotted #dbcca0;
@@ -98,7 +104,7 @@ h1 {
     font-family: "Lexend";
     font-weight: 500;
     font-size: 82px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     margin-left: 23px;
     margin-top: 43px;
     padding: 0px;
@@ -136,5 +142,19 @@ img{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+#nav {
+    color:var(--text-800);
+    font-family: "Lexend";
+    font-size: 22px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 0px;
+    border: 0px;
+    max-width: none;
 }
 
