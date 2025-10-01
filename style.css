@@ -85,14 +85,14 @@ body {
     color: var(--text-900);
     font-family: "Tirra";
     background: var(--background-50);
-    font-size: 20px;
+    font-size: max(2.5vw, 20px);
 }
 
 h2, h3 {
     color:var(--text-700);
     font-family: "Tirra";
     font-weight: 600;
-    font-size: 35px;
+    font-size: max(4vw, 30px);
     margin-left: 10px;
     padding: 0px;
     border: 0px;
@@ -121,8 +121,8 @@ h1 {
 }
 
 img{
-    margin: 30px;
-    max-width: 300px;
+    margin: 0px;
+    max-width: max(50vw, 250px);
 }
 
 .align-center {
