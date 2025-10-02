@@ -158,3 +158,6 @@ img{
     max-width: none;
 }
 
+div.align-right>h2, h3 {
+    text-align: end;
+}
