@@ -73,7 +73,7 @@ div {
 p, li {
  text-decoration: underline dotted #dbcca0;
  margin-left: 15px;
- @media screen and (width >= 500px) {
+ @media screen and (width >= 550px) {
  max-width: 50vw;
  }
 }
