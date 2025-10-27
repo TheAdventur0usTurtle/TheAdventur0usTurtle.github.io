@@ -188,3 +188,12 @@ div.align-right>h2, h3 {
     text-align: end;
 }
 
+/* A potential feature for later that I can't get working right now
+    This looks like a problem for future me */
+    
+/* .allow-oversize {
+    max-width: none;
+    width: max-content;
+    margin-left: 5px;
+    margin-right: 5px;
+} */
