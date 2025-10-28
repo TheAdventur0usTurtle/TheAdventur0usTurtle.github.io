@@ -60,11 +60,15 @@ html {
 --accent-950: #040f16;
 }
 
-/*
+
 *{
-     border: 1px solid red;
+    /* border: 1px solid red; */
+    opacity: 1;
+    position: relative;
+    z-index: 1;
 }
 
+/*
 div {
     border: 2px solid green;
 }
@@ -197,3 +201,12 @@ div.align-right>h2, h3 {
     margin-left: 5px;
     margin-right: 5px;
 } */
+
+canvas {
+    opacity: 1;
+    position: absolute;
+    z-index: 2;
+    border: 1px solid red;
+    width: stretch;
+    height: stretch;
+}
