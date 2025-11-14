@@ -66,9 +66,9 @@
         <h2>Part 3: Checkbox and Radio Buttons</h2>
         <label><input type="checkbox" id="subscribeBox"> Subscribe to newsletter</label>
         <p>Pick a mode:</p>
-        <label><input type="radio" name="mode" value="Light"> Light</label>
-        <label><input type="radio" name="mode" value="Dark"> Dark</label>
-        <label><input type="radio" name="mode" value="System" checked> System</label>
+        <label><input type="radio" name="mode" id="lightMode" value="Light"> Light</label>
+        <label><input type="radio" name="mode" id="darkMode" value="Dark"> Dark</label>
+        <label><input type="radio" name="mode" id="systemMode" value="System" checked> System</label>
         <button id="btnSubmit">Submit</button>
         <div class="output" id="modeOutput"></div>
     </section>
@@ -127,6 +127,22 @@
 
         btnSubmit.addEventListener("click", () => {
             // TODO: Find which radio button is checked and display it.
+            if (lightMode.checked) {
+                document.body.style.backgroundColor = "#ffffff";
+                modeOutput.textContent = "light";
+            } else if (darkMode.checked) {
+                document.body.style.backgroundColor = "#000000";
+                modeOutput.textContent = "dark";
+            } else if (systemMode.checked) {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.style.backgroundColor = "#000000";
+                    modeOutput.textContent = "system (dark)";
+                } else {
+                    document.body.style.backgroundColor = "#ffffff";
+                    modeOutput.textContent = "system (light)";
+                }
+
+            }
             // Challenge: Include whether the user subscribed or not.
         });
     </script>
