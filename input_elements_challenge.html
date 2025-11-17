@@ -125,20 +125,30 @@
         const btnSubmit = document.getElementById("btnSubmit");
         const modeOutput = document.getElementById("modeOutput");
 
+        function eyeScorcher() {
+            document.body.style.backgroundColor = "#ffffff";
+            document.body.style.color = "#000000";
+        }
+
+        function stealthMode() {
+            document.body.style.backgroundColor = "#000000";
+            document.body.style.color = "#ffffff";
+        }
+
         btnSubmit.addEventListener("click", () => {
             // TODO: Find which radio button is checked and display it.
             if (lightMode.checked) {
-                document.body.style.backgroundColor = "#ffffff";
+                eyeScorcher();
                 modeOutput.textContent = "light";
             } else if (darkMode.checked) {
-                document.body.style.backgroundColor = "#000000";
+                stealthMode();
                 modeOutput.textContent = "dark";
             } else if (systemMode.checked) {
                 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.style.backgroundColor = "#000000";
+                    stealthMode();
                     modeOutput.textContent = "system (dark)";
                 } else {
-                    document.body.style.backgroundColor = "#ffffff";
+                    eyeScorcher();
                     modeOutput.textContent = "system (light)";
                 }
 
