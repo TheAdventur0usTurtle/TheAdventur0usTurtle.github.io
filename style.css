@@ -217,12 +217,12 @@ canvas {
 /* CSS */
 #menu-btn {
   appearance: button;
-  background-color: #9e9e9e;
+  background-color: #dbcca0;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
   box-sizing: border-box;
-  color: #000000;
+  color: #a0a0a0;
   cursor: pointer;
   display: inline-block;
   font-family: din-round,sans-serif;
@@ -234,29 +234,28 @@ canvas {
   outline: none;
   overflow: visible;
   padding: 13px 16px;
-  left: 0%;
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
-  transform: translateZ(0);
   transition: filter .2s;
   user-select: none;
-  -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 5vw;
-  height: 5vw;
-  min-width: 40px;
-  min-height: 40px;
-  z-index: 3;
+  width: 6.5vw;
+  height: 6.5vw;
+  min-width: 50px;
+  min-height: 50px;
 }
 
-#menu-btn:after {
+#menu-btn::after {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   background-clip: padding-box;
-  background-color: #e2e2e2;
+  background-color: #f3ecd7;
   border: solid transparent;
   border-radius: 16px;
-  border-width: 0 0 4px;
+  border-width: 0 0 .7vw;
   bottom: -4px;
   content: "";
   left: 0;
@@ -265,23 +264,19 @@ canvas {
   top: 0;
 }
 
-#menu-btn,
-#menu-btn:focus {
-  user-select: auto;
-}
-
 #menu-btn:hover:not(:disabled) {
-  filter: brightness(1.1);
-  -webkit-filter: brightness(1.1);
-}
-
-#menu-btn:disabled {
-  cursor: auto;
+  filter: brightness(1.03);
 }
 
 #menu-btn:active {
   border-width: 4px 0 0;
   background: none;
+}
+
+#menu-icon {
+    height: 100%;
+    width: 0;
+    margin: 0;
 }
 
 
