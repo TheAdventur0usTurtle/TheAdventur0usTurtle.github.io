@@ -1,3 +1,5 @@
+document.body.style.display = "grid";
+
 function elementFromHtml(html) {
     const template = document.createElement("template");
     template.innerHTML = html.trim();
@@ -89,6 +91,9 @@ const button = elementFromHtml(`
     <img id="menu-icon" src="Assets/paint_bucket_icon.svg" alt="paint bucket">
   </button>
   `)
+
+menuContainer.style.gridRow = '1 / 2';
+menuContainer.style.gridColumn = '1 / -1';
 
 document.head.appendChild(styleEl);
 document.body.appendChild(menuContainer);

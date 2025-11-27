@@ -75,11 +75,11 @@ html {
     z-index: 1;
 }
 
-/*
+/* 
 div {
     border: 2px solid green;
 }
-*/
+ */
 
 p, li {
     text-decoration: underline dotted #dbcca0;
@@ -126,7 +126,7 @@ h1 {
     font-weight: 500;
     font-size: max(8.5vw, 80px);
     margin-bottom: 5px;
-    margin-top: 35px;
+    margin-top: 0px;
     padding: 0px;
     border: 0px;
     width: max(50vw, 450px);
