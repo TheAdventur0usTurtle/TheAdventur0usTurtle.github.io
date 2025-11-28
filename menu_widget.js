@@ -1,5 +1,3 @@
-document.body.style.display = "grid";
-
 function elementFromHtml(html) {
     const template = document.createElement("template");
     template.innerHTML = html.trim();
@@ -12,7 +10,7 @@ const styleEl = document.createElement("style");
 styleEl.textContent = `
   #menu-btn {
     appearance: button;
-    background-color: #dbcca0;
+    background-color: #d0c6a6ff;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -74,28 +72,63 @@ styleEl.textContent = `
     margin: 0;
   }
 
-  #menu-container {
+#menu-container {
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-end;
+    height: 8vw;
+    min-height: 70px;
   }
+
+ #menu {
+    background-color: #f3ecd7;
+    width: 50%;
+    height: 6vw;
+    min-height: calc(50px - .5vw);
+    align-self: center;
+    flex-wrap: nowrap;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid #d0c6a6ff;
+    border-width: 0 0 .5vw;
+} 
+
 `;
 
-
 const menuContainer = elementFromHtml(`
-  <div class="align-left" id="menu-container">
+  <div id="menu-container">
+  </div>
+`);
+
+const menu = elementFromHtml(`
+  <div id="menu">
   </div>
 `);
 
 const button = elementFromHtml(`
   <button id="menu-btn">
-    <img id="menu-icon" src="Assets/paint_bucket_icon.svg" alt="paint bucket">
+    <img id="menu-icon" src="Assets/paint_bucket_icon.svg" alt="paint bucket" draggable="false">
   </button>
   `)
 
-menuContainer.style.gridRow = '1 / 2';
-menuContainer.style.gridColumn = '1 / -1';
-
 document.head.appendChild(styleEl);
 document.body.appendChild(menuContainer);
+menuContainer.appendChild(menu);
 menuContainer.appendChild(button);
 
+menu.id = "menu";
+
+// code -------------------------------------------------------
+
+let menuStatus = "closed";
+
+button.addEventListener("click", function(){
+  if(menuStatus == "open") {
+    menuStatus = "closed";
+    menu.style.width = "0px"
+  } else {
+    menuStatus = "open";
+    menu.style.width = "50%";
+  }
+});
