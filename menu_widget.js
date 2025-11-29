@@ -122,6 +122,7 @@ menu.id = "menu";
 // code -------------------------------------------------------
 
 let menuStatus = "closed";
+menu.style.width = "0px"
 
 button.addEventListener("click", function(){
   if(menuStatus == "open") {
