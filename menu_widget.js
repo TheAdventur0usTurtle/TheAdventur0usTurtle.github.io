@@ -92,8 +92,18 @@ styleEl.textContent = `
     align-items: center;
     border: solid #d0c6a6ff;
     border-width: 0 0 .5vw;
-} 
+}
 
+.theme-option {
+  r: 25%;
+  border: solid #d0c6a6ff;
+  border-width: 0 0 .5vw;
+}
+
+ .theme-option:hover:not(:disabled) {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+  }
 `;
 
 const menuContainer = elementFromHtml(`
@@ -110,12 +120,55 @@ const button = elementFromHtml(`
   <button id="menu-btn">
     <img id="menu-icon" src="Assets/paint_bucket_icon.svg" alt="paint bucket" draggable="false">
   </button>
-  `)
+  `);
+
+const themeBlue = elementFromHtml(`
+  <svg width="20%" height="100%">
+    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#557cc5ff"/>
+  </svg>
+`);
+
+const themeGreen = elementFromHtml(`
+  <svg width="20%" height="100%">
+    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#55c571ff"/>
+  </svg>
+`);
+
+const themePink = elementFromHtml(`
+  <svg width="20%" height="100%">
+    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#c5559aff"/>
+  </svg>
+`);
+
+const themeBlack = elementFromHtml(`
+  <svg width="20%" height="100%">
+    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#595959ff"/>
+  </svg>
+`);
+
+const themeYellow = elementFromHtml(`
+  <svg width="20%" height="100%">
+    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#c5c555ff"/>
+  </svg>
+`);
+
+const themeWhite = elementFromHtml(`
+  <svg width="20%" height="100%">
+    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#d1d1d1ff"/>
+  </svg>
+`);
 
 document.head.appendChild(styleEl);
 document.body.appendChild(menuContainer);
 menuContainer.appendChild(menu);
 menuContainer.appendChild(button);
+menu.appendChild(themePink);
+menu.appendChild(themeGreen);
+menu.appendChild(themeBlue);
+menu.appendChild(themeBlack);
+menu.appendChild(themeYellow);
+menu.appendChild(themeWhite);
+
 
 menu.id = "menu";
 
@@ -132,4 +185,27 @@ button.addEventListener("click", function(){
     menuStatus = "open";
     menu.style.width = "50%";
   }
+});
+
+// Code below was copied from Google AI Overviews with a good amount of tweaking from me --------------------------------------------
+// because there is no way I'm going to try to put this together from scratch at 11 o'clock
+// at night ippin tea while I listen to Nifty's song ftom Hazbin Hotel on an
+// hour loop. I'm currently half way through and on my second replay. Please help.
+
+themePink.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - themePink.getBoundingClientRect().left;
+  offsetY = e.clientY - themePink.getBoundingClientRect().top;
+  themePink.style.cursor = 'grabbing'; // Change cursor during drag
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  themePink.style.left = (e.clientX - offsetX) + 'px';
+  themePink.style.top = (e.clientY - offsetY) + 'px';
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  themePink.style.cursor = 'grab';
 });
