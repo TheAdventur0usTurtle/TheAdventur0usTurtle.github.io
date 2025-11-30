@@ -92,12 +92,14 @@ styleEl.textContent = `
     align-items: center;
     border: solid #d0c6a6ff;
     border-width: 0 0 .5vw;
+    position: relative;
 }
 
 .theme-option {
   r: 25%;
   border: solid #d0c6a6ff;
   border-width: 0 0 .5vw;
+  position: absolute;
 }
 
  .theme-option:hover:not(:disabled) {
@@ -124,37 +126,37 @@ const button = elementFromHtml(`
 
 const themeBlue = elementFromHtml(`
   <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#557cc5ff"/>
+    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#557cc5ff"/>
   </svg>
 `);
 
 const themeGreen = elementFromHtml(`
   <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#55c571ff"/>
+    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#55c571ff"/>
   </svg>
 `);
 
 const themePink = elementFromHtml(`
   <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#c5559aff"/>
+    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#c5559aff"/>
   </svg>
 `);
 
 const themeBlack = elementFromHtml(`
   <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#595959ff"/>
+    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#595959ff"/>
   </svg>
 `);
 
 const themeYellow = elementFromHtml(`
   <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#c5c555ff"/>
+    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#c5c555ff"/>
   </svg>
 `);
 
 const themeWhite = elementFromHtml(`
   <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="15%" fill="#d1d1d1ff"/>
+    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#d1d1d1ff"/>
   </svg>
 `);
 
@@ -187,25 +189,39 @@ button.addEventListener("click", function(){
   }
 });
 
-// Code below was copied from Google AI Overviews with a good amount of tweaking from me --------------------------------------------
+// The code below was from a tutorial with a good amount of tweaking from me --------------------------------------------
 // because there is no way I'm going to try to put this together from scratch at 11 o'clock
-// at night ippin tea while I listen to Nifty's song ftom Hazbin Hotel on an
+// at night with one hand and no idea what I'm doing while I listen to Nifty's song ftom Hazbin Hotel on an
 // hour loop. I'm currently half way through and on my second replay. Please help.
+//
+//      VVV
+//
+// https://www.youtube.com/watch?v=ymDjvycjgUM
+
+let startX = 0;
+let startY = 0;
+let newX = 0;
+let newY = 0;
+
+function handleMouseMove(e) {
+  newX = startX - e.clientX;
+  newY = startY - e.clientY;
+  startX = e.clientX;
+  startY = e.clientY;
+  themePink.style.left = startX - menu.clientWidth*0.9 + "px";
+  themePink.style.top = startY - menu.clientHeight*0.9 + "px";
+  themePink.style.cursor = 'grabbing';
+}
 
 themePink.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.clientX - themePink.getBoundingClientRect().left;
-  offsetY = e.clientY - themePink.getBoundingClientRect().top;
-  themePink.style.cursor = 'grabbing'; // Change cursor during drag
-});
+  startX = e.clientX;
+  startY = e.clientY;
+  themePink.style.cursor = 'grabbing';
 
-document.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  themePink.style.left = (e.clientX - offsetX) + 'px';
-  themePink.style.top = (e.clientY - offsetY) + 'px';
+  document.addEventListener('mousemove', handleMouseMove);
 });
 
 document.addEventListener('mouseup', () => {
-  isDragging = false;
-  themePink.style.cursor = 'grab';
-});
+    themePink.style.cursor = 'grab';
+    document.removeEventListener('mousemove', handleMouseMove);
+  });
