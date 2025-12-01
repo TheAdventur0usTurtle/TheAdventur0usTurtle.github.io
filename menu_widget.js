@@ -1,3 +1,6 @@
+//  Drag and drop colors to set the webpage theme
+//  NOTE: It's barely functional, but I hope to improve it soon
+
 function elementFromHtml(html) {
     const template = document.createElement("template");
     template.innerHTML = html.trim();
@@ -6,8 +9,8 @@ function elementFromHtml(html) {
 
 // create elements ------------------------------------
 
-const styleEl = document.createElement("style");
-styleEl.textContent = `
+const widgetStyle = document.createElement("style");
+widgetStyle.textContent = `
   #menu-btn {
     appearance: button;
     background-color: #d0c6a6ff;
@@ -81,7 +84,7 @@ styleEl.textContent = `
 
  #menu {
     background-color: #f3ecd7;
-    width: 50%;
+    width: 30%;
     height: 6vw;
     min-height: calc(50px - .5vw);
     align-self: center;
@@ -99,7 +102,6 @@ styleEl.textContent = `
   r: 25%;
   border: solid #d0c6a6ff;
   border-width: 0 0 .5vw;
-  position: absolute;
 }
 
  .theme-option:hover:not(:disabled) {
@@ -114,7 +116,7 @@ const menuContainer = elementFromHtml(`
 `);
 
 const menu = elementFromHtml(`
-  <div id="menu">
+  <div id="menu" draggable="false">
   </div>
 `);
 
@@ -125,42 +127,36 @@ const button = elementFromHtml(`
   `);
 
 const themeBlue = elementFromHtml(`
-  <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#557cc5ff"/>
+  <svg width="20%" height="100%" draggable="true">
+    <circle class="theme-option" draggable="true" cx="50%" cy="50%" r="25%" fill="#557cc5ff"/>
   </svg>
 `);
 
 const themeGreen = elementFromHtml(`
-  <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#55c571ff"/>
+  <svg width="20%" height="100%" draggable="true">
+    <circle class="theme-option" draggable="true" cx="50%" cy="50%" r="25%" fill="#55c571ff"/>
   </svg>
 `);
 
 const themePink = elementFromHtml(`
-  <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#c5559aff"/>
+  <svg width="20%" height="100%" draggable="true">
+    <circle class="theme-option" draggable="true" cx="50%" cy="50%" r="25%" fill="#c5559aff"/>
   </svg>
 `);
 
 const themeBlack = elementFromHtml(`
-  <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#595959ff"/>
+  <svg width="20%" height="100%" draggable="true">
+    <circle class="theme-option" draggable="true" cx="50%" cy="50%" r="25%" fill="#595959ff"/>
   </svg>
 `);
 
-const themeYellow = elementFromHtml(`
-  <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#c5c555ff"/>
+const themeOrange = elementFromHtml(`
+  <svg width="20%" height="100%" draggable="true">
+    <circle class="theme-option" draggable="true" cx="50%" cy="50%" r="25%" fill="#d6a254ff"/>
   </svg>
 `);
 
-const themeWhite = elementFromHtml(`
-  <svg width="20%" height="100%">
-    <circle class="theme-option" cx="50%" cy="50%" r="25%" fill="#d1d1d1ff"/>
-  </svg>
-`);
-
-document.head.appendChild(styleEl);
+document.head.appendChild(widgetStyle);
 document.body.appendChild(menuContainer);
 menuContainer.appendChild(menu);
 menuContainer.appendChild(button);
@@ -168,8 +164,7 @@ menu.appendChild(themePink);
 menu.appendChild(themeGreen);
 menu.appendChild(themeBlue);
 menu.appendChild(themeBlack);
-menu.appendChild(themeYellow);
-menu.appendChild(themeWhite);
+menu.appendChild(themeOrange);
 
 
 menu.id = "menu";
@@ -185,7 +180,7 @@ button.addEventListener("click", function(){
     menu.style.width = "0px"
   } else {
     menuStatus = "open";
-    menu.style.width = "50%";
+    menu.style.width = "40%";
   }
 });
 
@@ -200,28 +195,95 @@ button.addEventListener("click", function(){
 
 let startX = 0;
 let startY = 0;
-let newX = 0;
-let newY = 0;
 
-function handleMouseMove(e) {
-  newX = startX - e.clientX;
-  newY = startY - e.clientY;
-  startX = e.clientX;
-  startY = e.clientY;
-  themePink.style.left = startX - menu.clientWidth*0.9 + "px";
-  themePink.style.top = startY - menu.clientHeight*0.9 + "px";
-  themePink.style.cursor = 'grabbing';
+let themeColors = [themeOrange, themeBlack, themeBlue, themeGreen, themePink];
+let themeSelectionOptions = ["orange", "black", "blue", "green", "pink"];
+
+function setTheme(theme) {
+  
 }
 
-themePink.addEventListener('mousedown', (e) => {
-  startX = e.clientX;
-  startY = e.clientY;
-  themePink.style.cursor = 'grabbing';
+for (let index = 0; index < themeColors.length; index++) {
+  const currentElement = themeColors[index];
 
+  function handleMouseMove(e) {
+  startX = e.pageX;
+  startY = e.pageY;
+  // This part doesn't quite line up with the mouse and I don't understand why
+  currentElement.style.left = startX - (currentElement.clientWidth*index + currentElement.clientWidth*0.5) + "px";
+  currentElement.style.top = startY - currentElement.clientHeight*0.5 + "px";
+  currentElement.style.cursor = 'grabbing';
+}
+
+currentElement.addEventListener('mousedown', (e) => {
+  startX = e.pageX;
+  startY = e.pageY;
+  selectedTheme = themeSelectionOptions[index];
+  currentElement.style.cursor = 'grabbing';
   document.addEventListener('mousemove', handleMouseMove);
 });
 
+// menu.addEventListener( (e) => {
+
+// });
+
 document.addEventListener('mouseup', () => {
-    themePink.style.cursor = 'grab';
+    currentElement.style.cursor = 'grab';
     document.removeEventListener('mousemove', handleMouseMove);
+    currentElement.remove();
+    menu.appendChild(currentElement);
+    if(selectedTheme == "orange") {
+    document.body.style.backgroundColor = "#faf7eb";
+    document.body.style.color = "#1a1a1a";
+  } else if(selectedTheme == "black") {
+    document.body.style.backgroundColor = "#000000ff";
+    document.body.style.color = "#ffffff";
+
+  } else if(selectedTheme == "blue") {
+    document.body.style.backgroundColor = "#ebf2faff";
+    document.body.style.color = "#1a1a1a";
+
+  } else if(selectedTheme == "green") {
+    document.body.style.color = "#1a1a1a";
+    document.body.style.backgroundColor = "#d1eed3ff";
+
+  } else if(selectedTheme == "pink") {
+    document.body.style.color = "#1a1a1a";
+    document.body.style.backgroundColor = "#d1eed3ff";
+
+  } else if(selectedTheme == "cancel") {
+    // Do nothing
+  } else {
+    alert("error: unexpected input -- selected theme -->" + selectedTheme);
+  }
+
   });
+
+}
+
+//  I really wanted to get this working, but I couldn't create a work around for the offset in time.
+//  The code below is from a different tutorial that was the JS equivilant of duct taped into the project.
+//
+//    VVV
+//
+//  https://www.youtube.com/watch?v=_G8G1OrEOrI
+//
+
+// document.body.addEventListener('dragover', function(event) {
+// 	// event.preventDefault()
+// });
+// document.body.addEventListener('drop', function(event) {
+// 	selectedTheme = themeSelectionOptions[index];
+
+// })
+
+// let themeColors = [themeOrange, themeBlack, themeBlue, themeGreen, themePink];
+// let themeSelectionOptions = ["orange", "black", "blue", "green", "pink"];
+
+// for (let index = 0; index < themeColors.length; index++) {
+//   const currentElement = themeColors[index];
+
+//   currentElement.addEventListener('dragstart', function(event) {
+// 	console.log(event);
+// });
+// }
