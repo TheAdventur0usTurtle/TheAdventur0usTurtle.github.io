@@ -1,5 +1,6 @@
 //  Drag and drop colors to set the webpage theme
 //  NOTE: It's barely functional, but I hope to improve it soon
+document.body.style.display = "grid";
 
 function elementFromHtml(html) {
     const template = document.createElement("template");
@@ -171,6 +172,7 @@ menu.id = "menu";
 
 // code -------------------------------------------------------
 
+let selectedTheme = "canceled";
 let menuStatus = "closed";
 menu.style.width = "0px"
 
@@ -210,18 +212,20 @@ for (let index = 0; index < themeColors.length; index++) {
   startX = e.pageX;
   startY = e.pageY;
   // This part doesn't quite line up with the mouse and I don't understand why
+  currentElement.style.position = "absolute";
   currentElement.style.left = startX - (currentElement.clientWidth*index + currentElement.clientWidth*0.5) + "px";
   currentElement.style.top = startY - currentElement.clientHeight*0.5 + "px";
   currentElement.style.cursor = 'grabbing';
 }
 
-currentElement.addEventListener('mousedown', (e) => {
-  startX = e.pageX;
-  startY = e.pageY;
-  selectedTheme = themeSelectionOptions[index];
+  function handleMouseDown() {
+  selectedTheme = themeSelectionOptions[index]; 
   currentElement.style.cursor = 'grabbing';
   document.addEventListener('mousemove', handleMouseMove);
-});
+  }
+
+currentElement.addEventListener('mousedown', handleMouseDown);
+
 
 // menu.addEventListener( (e) => {
 
@@ -249,9 +253,9 @@ document.addEventListener('mouseup', () => {
 
   } else if(selectedTheme == "pink") {
     document.body.style.color = "#1a1a1a";
-    document.body.style.backgroundColor = "#d1eed3ff";
+    document.body.style.backgroundColor = "#e7a9d3ff";
 
-  } else if(selectedTheme == "cancel") {
+  } else if(selectedTheme == "canceled") {
     // Do nothing
   } else {
     alert("error: unexpected input -- selected theme -->" + selectedTheme);
