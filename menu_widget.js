@@ -226,11 +226,6 @@ for (let index = 0; index < themeColors.length; index++) {
 
 currentElement.addEventListener('mousedown', handleMouseDown);
 
-
-// menu.addEventListener( (e) => {
-
-// });
-
 document.addEventListener('mouseup', () => {
     currentElement.style.cursor = 'grab';
     document.removeEventListener('mousemove', handleMouseMove);
