@@ -1,6 +1,11 @@
 //  Drag and drop colors to set the webpage theme
 //  NOTE: It's barely functional, but I hope to improve it soon
-document.body.style.display = "grid";
+const h1 = document.getElementById("title");
+const paragraphs = document.getElementsByTagName('p');
+const lists = document.getElementsByTagName('li');
+const h2 = document.getElementsByTagName('h2');
+const h3 = document.getElementsByTagName('h3');
+const images = document.getElementsByTagName("img");
 
 function elementFromHtml(html) {
     const template = document.createElement("template");
@@ -105,9 +110,11 @@ widgetStyle.textContent = `
   border-width: 0 0 .5vw;
 }
 
- .theme-option:hover:not(:disabled) {
+ .theme-option:hover {
     filter: brightness(1.1);
     transform: scale(1.05);
+    cx: 48%;
+    cy: 45%;
   }
 `;
 
@@ -158,7 +165,7 @@ const themeOrange = elementFromHtml(`
 `);
 
 document.head.appendChild(widgetStyle);
-document.body.appendChild(menuContainer);
+document.body.insertBefore(menuContainer, document.body.firstChild);
 menuContainer.appendChild(menu);
 menuContainer.appendChild(button);
 menu.appendChild(themePink);
@@ -202,7 +209,97 @@ let themeColors = [themeOrange, themeBlack, themeBlue, themeGreen, themePink];
 let themeSelectionOptions = ["orange", "black", "blue", "green", "pink"];
 
 function setTheme(theme) {
-  
+  if(theme == "orange") {
+    document.body.style.backgroundColor = "#faf7eb";
+    document.body.style.color = "#1a1a1a";
+    h1.style.color = "#1a1a1a";
+    for (let step = 0; step < paragraphs.length; step++) {
+      currentElement = paragraphs[step];
+      currentElement.style.textDecorationColor = "#dbcca0";
+    }
+    for (let step = 0; step < lists.length; step++) {
+      currentElement = lists[step];
+      currentElement.style.textDecorationColor = "#dbcca0";
+    }
+    for (let step = 0; step < h2.length; step++) {
+      currentElement = h2[step];
+      currentElement.style.color = "#4d4d4d";
+    }
+
+  } else if(theme == "black") {
+    document.body.style.backgroundColor = "#000000ff";
+    document.body.style.color = "#c9c9c9ff";
+    h1.style.color = "#c9c9c9ff";
+    for (let step = 0; step < paragraphs.length; step++) {
+      currentParagraph = paragraphs[step];
+      currentParagraph.style.textDecorationColor = "#646464ff";
+    }
+    for (let step = 0; step < lists.length; step++) {
+      currentElement = lists[step];
+      currentElement.style.textDecorationColor = "#646464ff";
+    }
+    for (let step = 0; step < h2.length; step++) {
+      currentElement = h2[step];
+      currentElement.style.color = "#bdbdbdff";
+    }
+
+  } else if(theme == "blue") {
+    document.body.style.backgroundColor = "#ebf2faff";
+    document.body.style.color = "#1a1a1a";
+    h1.style.color = "#1a1a1a";
+    for (let step = 0; step < paragraphs.length; step++) {
+      currentParagraph = paragraphs[step];
+      currentParagraph.style.textDecorationColor = "#c9d3dfff";
+    }
+    for (let step = 0; step < lists.length; step++) {
+      currentElement = lists[step];
+      currentElement.style.textDecorationColor = "#c9d3dfff";
+    }
+    for (let step = 0; step < h2.length; step++) {
+      currentElement = h2[step];
+      currentElement.style.color = "#4d4d4d";
+    }
+
+  } else if(theme == "green") {
+    document.body.style.color = "#1a1a1a";
+    document.body.style.backgroundColor = "#d7eed1ff";
+    h1.style.color = "#1a1a1a";
+    for (let step = 0; step < paragraphs.length; step++) {
+      currentParagraph = paragraphs[step];
+      currentParagraph.style.textDecorationColor = "#b5daacff";
+    }
+    for (let step = 0; step < lists.length; step++) {
+      currentElement = lists[step];
+      currentElement.style.textDecorationColor = "#b5daacff";
+    }
+    for (let step = 0; step < h2.length; step++) {
+      currentElement = h2[step];
+      currentElement.style.color = "#4d4d4d";
+    }
+
+  } else if(theme == "pink") {
+    document.body.style.color = "#1a1a1a";
+    document.body.style.backgroundColor = "#e9d0e1ff";
+    h1.style.color = "#1a1a1a";
+    for (let step = 0; step < paragraphs.length; step++) {
+      currentParagraph = paragraphs[step];
+      currentParagraph.style.textDecorationColor = "#cf9cbfff";
+    }
+    for (let step = 0; step < lists.length; step++) {
+      currentElement = lists[step];
+      currentElement.style.textDecorationColor = "#cf9cbfff";
+    }
+    for (let step = 0; step < h2.length; step++) {
+      currentElement = h2[step];
+      currentElement.style.color = "#4d4d4d";
+    }
+
+  } else if(theme == "canceled") {
+    // Do nothing
+  } else {
+    alert("error: unexpected input -- selected theme -->" + selectedTheme);
+  }
+
 }
 
 for (let index = 0; index < themeColors.length; index++) {
@@ -212,9 +309,9 @@ for (let index = 0; index < themeColors.length; index++) {
   startX = e.pageX;
   startY = e.pageY;
   // This part doesn't quite line up with the mouse and I don't understand why
-  currentElement.style.position = "absolute";
-  currentElement.style.left = startX - (currentElement.clientWidth*index + currentElement.clientWidth*0.5) + "px";
-  currentElement.style.top = startY - currentElement.clientHeight*0.5 + "px";
+  //currentElement.style.position = "absolute";
+  // currentElement.style.left = startX - (currentElement.clientWidth*index + currentElement.clientWidth*0.5) + "px";
+  // currentElement.style.top = startY - currentElement.clientHeight*0.5 + "px";
   currentElement.style.cursor = 'grabbing';
 }
 
@@ -231,31 +328,7 @@ document.addEventListener('mouseup', () => {
     document.removeEventListener('mousemove', handleMouseMove);
     currentElement.remove();
     menu.appendChild(currentElement);
-    if(selectedTheme == "orange") {
-    document.body.style.backgroundColor = "#faf7eb";
-    document.body.style.color = "#1a1a1a";
-  } else if(selectedTheme == "black") {
-    document.body.style.backgroundColor = "#000000ff";
-    document.body.style.color = "#ffffff";
-
-  } else if(selectedTheme == "blue") {
-    document.body.style.backgroundColor = "#ebf2faff";
-    document.body.style.color = "#1a1a1a";
-
-  } else if(selectedTheme == "green") {
-    document.body.style.color = "#1a1a1a";
-    document.body.style.backgroundColor = "#d1eed3ff";
-
-  } else if(selectedTheme == "pink") {
-    document.body.style.color = "#1a1a1a";
-    document.body.style.backgroundColor = "#e7a9d3ff";
-
-  } else if(selectedTheme == "canceled") {
-    // Do nothing
-  } else {
-    alert("error: unexpected input -- selected theme -->" + selectedTheme);
-  }
-
+    setTheme(selectedTheme);
   });
 
 }
