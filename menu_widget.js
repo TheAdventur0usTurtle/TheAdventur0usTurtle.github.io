@@ -4,7 +4,6 @@ const h1 = document.getElementById("title");
 const paragraphs = document.getElementsByTagName('p');
 const lists = document.getElementsByTagName('li');
 const h2 = document.getElementsByTagName('h2');
-const h3 = document.getElementsByTagName('h3');
 const images = document.getElementsByTagName("img");
 
 function elementFromHtml(html) {
@@ -225,6 +224,10 @@ function setTheme(theme) {
       currentElement = h2[step];
       currentElement.style.color = "#4d4d4d";
     }
+    for (let step = 0; step < images.length; step++) {
+      currentElement = images[step];
+      currentElement.style.borderColor = "#dbcca0";
+    }
 
   } else if(theme == "black") {
     document.body.style.backgroundColor = "#000000ff";
@@ -241,6 +244,10 @@ function setTheme(theme) {
     for (let step = 0; step < h2.length; step++) {
       currentElement = h2[step];
       currentElement.style.color = "#bdbdbdff";
+    }
+    for (let step = 0; step < images.length; step++) {
+      currentElement = images[step];
+      currentElement.style.borderColor = "#646464ff";
     }
 
   } else if(theme == "blue") {
@@ -259,6 +266,10 @@ function setTheme(theme) {
       currentElement = h2[step];
       currentElement.style.color = "#4d4d4d";
     }
+    for (let step = 0; step < images.length; step++) {
+      currentElement = images[step];
+      currentElement.style.borderColor = "#c9d3dfff";
+    }
 
   } else if(theme == "green") {
     document.body.style.color = "#1a1a1a";
@@ -276,6 +287,10 @@ function setTheme(theme) {
       currentElement = h2[step];
       currentElement.style.color = "#4d4d4d";
     }
+    for (let step = 0; step < images.length; step++) {
+      currentElement = images[step];
+      currentElement.style.borderColor = "#b5daacff";
+    }
 
   } else if(theme == "pink") {
     document.body.style.color = "#1a1a1a";
@@ -292,6 +307,10 @@ function setTheme(theme) {
     for (let step = 0; step < h2.length; step++) {
       currentElement = h2[step];
       currentElement.style.color = "#4d4d4d";
+    }
+    for (let step = 0; step < images.length; step++) {
+      currentElement = images[step];
+      currentElement.style.borderColor = "#cf9cbfff";
     }
 
   } else if(theme == "canceled") {
