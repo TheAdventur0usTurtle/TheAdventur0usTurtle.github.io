@@ -1,5 +1,4 @@
-//  Drag and drop colors to set the webpage theme
-//  NOTE: It's barely functional, but I hope to improve it soon
+
 const h1 = document.getElementById("title");
 const paragraphs = document.getElementsByTagName('p');
 const lists = document.getElementsByTagName('li');

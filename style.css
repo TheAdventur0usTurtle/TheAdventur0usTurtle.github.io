@@ -107,6 +107,7 @@ img{
     @media screen and (width <= 580px) {
         margin-right: 15px;
         margin-left: 15px;
+         align-self: center;  
     }
 }
 
@@ -154,6 +155,7 @@ div.align-right>h2, h3 {
 div.align-center>h2, h3 {
    text-align: center; 
 }
+
 /* A potential feature for later that I can't get working right now
     This looks like a problem for future me */
     
