@@ -196,7 +196,7 @@ button.addEventListener("click", function(){
 
 // The code below was from a tutorial with a good amount of tweaking from me --------------------------------------------
 // because there is no way I'm going to try to put this together from scratch at 11 o'clock
-// at night with one hand and no idea what I'm doing while I listen to Nifty's song ftom Hazbin Hotel on an
+// at night with one hand and no idea what I'm doing while I listen to Nifty's song from Hazbin Hotel on an
 // hour loop. I'm currently half way through and on my second replay. Please help.
 //
 //      VVV
