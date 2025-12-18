@@ -9,14 +9,6 @@ html {
 
 }
 
-#stars-img {
-    min-width: 250px;
-}
-
-#turtle-img {
-    min-width: 250px;
-}
-
 *{
     /* border: 1px solid red; */
     opacity: 1;
