@@ -22,7 +22,7 @@ widgetStyle.textContent = `
     border-radius: 16px;
     border-width: 0 0 4px;
     box-sizing: border-box;
-    color: #a0a0a0;
+    color: #000000ff;
     cursor: pointer;
     display: inline-block;
     font-family: din-round,sans-serif;
@@ -45,6 +45,8 @@ widgetStyle.textContent = `
     height: 6.5vw;
     min-width: 50px;
     min-height: 50px;
+
+    --btn-color-main: #f3ecd7;
   }
 
   #menu-btn::after {
@@ -52,7 +54,7 @@ widgetStyle.textContent = `
     align-items: center;
     justify-content: flex-start;
     background-clip: padding-box;
-    background-color: #f3ecd7;
+    background-color: var(--btn-color-main);
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 .7vw;
@@ -64,7 +66,7 @@ widgetStyle.textContent = `
     top: 0;
   }
 
-  #menu-btn:hover:not(:disabled) {
+  #menu-btn:hover {
     filter: brightness(1.03);
   }
 
@@ -228,6 +230,10 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#dbcca0";
     }
+    menu.style.backgroundColor = "#f3ecd7";
+    menu.style.borderColor = "#d0c6a6ff";
+    button.style.setProperty("--btn-color-main", "#f3ecd7");
+    button.style.backgroundColor = "#d0c6a6ff";
 
   } else if(theme == "black") {
     document.body.style.backgroundColor = "#000000ff";
@@ -249,6 +255,10 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#646464ff";
     }
+    menu.style.backgroundColor = "#d9d9d9ff";
+    menu.style.borderColor = "#a09e9eff";
+    button.style.setProperty("--btn-color-main", "#d9d9d9ff");
+    button.style.backgroundColor = "#a09e9eff";
 
   } else if(theme == "blue") {
     document.body.style.backgroundColor = "#ebf2faff";
@@ -270,6 +280,10 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#c9d3dfff";
     }
+    menu.style.backgroundColor = "#dde4edff";
+    menu.style.borderColor = "#c0cbdaff";
+    button.style.setProperty("--btn-color-main","#dde4edff");
+    button.style.backgroundColor = "#c0cbdaff";
 
   } else if(theme == "green") {
     document.body.style.color = "#1a1a1a";
@@ -291,6 +305,10 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#b5daacff";
     }
+    menu.style.backgroundColor = "#c3e2bbff";
+    menu.style.borderColor = "#abcea2ff";
+    button.style.setProperty("--btn-color-main", "#c3e2bbff");
+    button.style.backgroundColor = "#abcea2ff";
 
   } else if(theme == "pink") {
     document.body.style.color = "#1a1a1a";
@@ -312,6 +330,11 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#cf9cbfff";
     }
+    menu.style.backgroundColor = "#dbb9cfff";
+    menu.style.borderColor = "#d4a8c5ff";
+    button.style.setProperty("--btn-color-main", "#dbb9cfff");
+    button.style.backgroundColor = "#d4a8c5ff";
+
 
   } else if(theme == "canceled") {
     // Do nothing
