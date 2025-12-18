@@ -1,3 +1,5 @@
+//currently not in use, Saving this code for later
+
 const title = document.getElementById("title");
 const canvas = document.getElementById("home-canvas");
 const display = canvas.getContext("2d");

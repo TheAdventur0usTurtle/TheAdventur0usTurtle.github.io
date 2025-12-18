@@ -1,3 +1,4 @@
+//Find this button at the top of the home page
 
 const h1 = document.getElementById("title");
 const paragraphs = document.getElementsByTagName('p');
