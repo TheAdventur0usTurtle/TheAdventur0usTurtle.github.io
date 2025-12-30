@@ -166,8 +166,10 @@ const themeOrange = elementFromHtml(`
   </svg>
 `);
 
+const SnowContainer = document.getElementById("outer-snow-container");
+
 document.head.appendChild(widgetStyle);
-document.body.insertBefore(menuContainer, document.body.firstChild);
+SnowContainer.after(menuContainer);
 menuContainer.appendChild(menu);
 menuContainer.appendChild(button);
 menu.appendChild(themePink);
@@ -184,6 +186,7 @@ menu.id = "menu";
 let selectedTheme = "canceled";
 let menuStatus = "closed";
 menu.style.width = "0px"
+SnowContainer.hidden = true;
 
 button.addEventListener("click", function(){
   if(menuStatus == "open") {
@@ -212,6 +215,7 @@ let themeSelectionOptions = ["orange", "black", "blue", "green", "pink"];
 
 function setTheme(theme) {
   if(theme == "orange") {
+    SnowContainer.hidden = true;
     document.body.style.backgroundColor = "#faf7eb";
     document.body.style.color = "#1a1a1a";
     h1.style.color = "#1a1a1a";
@@ -237,6 +241,7 @@ function setTheme(theme) {
     button.style.backgroundColor = "#d0c6a6ff";
 
   } else if(theme == "black") {
+    SnowContainer.hidden = true;
     document.body.style.backgroundColor = "#000000ff";
     document.body.style.color = "#c9c9c9ff";
     h1.style.color = "#c9c9c9ff";
@@ -262,16 +267,17 @@ function setTheme(theme) {
     button.style.backgroundColor = "#a09e9eff";
 
   } else if(theme == "blue") {
-    document.body.style.backgroundColor = "#ebf2faff";
+    SnowContainer.hidden = false;
+    document.body.style.backgroundColor = "#b7c9dcff";
     document.body.style.color = "#1a1a1a";
     h1.style.color = "#1a1a1a";
     for (let step = 0; step < paragraphs.length; step++) {
       currentParagraph = paragraphs[step];
-      currentParagraph.style.textDecorationColor = "#c9d3dfff";
+      currentParagraph.style.textDecorationColor = "#d0d7e0ff";
     }
     for (let step = 0; step < lists.length; step++) {
       currentElement = lists[step];
-      currentElement.style.textDecorationColor = "#c9d3dfff";
+      currentElement.style.textDecorationColor = "#d0d7e0ff";
     }
     for (let step = 0; step < h2.length; step++) {
       currentElement = h2[step];
@@ -282,21 +288,22 @@ function setTheme(theme) {
       currentElement.style.borderColor = "#c9d3dfff";
     }
     menu.style.backgroundColor = "#dde4edff";
-    menu.style.borderColor = "#c0cbdaff";
+    menu.style.borderColor = "#a4b5ceff";
     button.style.setProperty("--btn-color-main","#dde4edff");
-    button.style.backgroundColor = "#c0cbdaff";
+    button.style.backgroundColor = "#a4b5ceff";
 
   } else if(theme == "green") {
+    SnowContainer.hidden = true;
     document.body.style.color = "#1a1a1a";
-    document.body.style.backgroundColor = "#d7eed1ff";
+    document.body.style.backgroundColor = "#d1e7cbff";
     h1.style.color = "#1a1a1a";
     for (let step = 0; step < paragraphs.length; step++) {
       currentParagraph = paragraphs[step];
-      currentParagraph.style.textDecorationColor = "#b5daacff";
+      currentParagraph.style.textDecorationColor = "#abcea2ff";
     }
     for (let step = 0; step < lists.length; step++) {
       currentElement = lists[step];
-      currentElement.style.textDecorationColor = "#b5daacff";
+      currentElement.style.textDecorationColor = "#abcea2ff";
     }
     for (let step = 0; step < h2.length; step++) {
       currentElement = h2[step];
@@ -306,12 +313,13 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#b5daacff";
     }
-    menu.style.backgroundColor = "#c3e2bbff";
+    menu.style.backgroundColor = "#e0efddff";
     menu.style.borderColor = "#abcea2ff";
-    button.style.setProperty("--btn-color-main", "#c3e2bbff");
+    button.style.setProperty("--btn-color-main", "#e0efddff");
     button.style.backgroundColor = "#abcea2ff";
 
   } else if(theme == "pink") {
+    SnowContainer.hidden = true;
     document.body.style.color = "#1a1a1a";
     document.body.style.backgroundColor = "#e9d0e1ff";
     h1.style.color = "#1a1a1a";
