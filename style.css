@@ -44,6 +44,8 @@ body {
     font-family: "Tirra";
     background: var(--background-50);
     font-size: max(2.5vw, 20px);
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 h2, h3 {
@@ -130,15 +132,15 @@ img{
     font-weight: lighter;
     margin-top: 0px;
     margin-bottom: 20px;
-    @media screen and (width <= 580px) {
-        margin-right: 15px;
-        margin-left: 15px;
-    }
     margin-left: 15px;
     margin-right: 15px;
     padding: 0px;
     border: 0px;
     max-width: none;
+    @media screen and (width <= 580px) {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
 }
 
 div.align-right>h2, h3 {
@@ -171,6 +173,26 @@ canvas {
     pointer-events: none;
 }
 
+.decorative-right {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.decoration {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    max-width: 100vw;
+    min-width: 250px;
+}
+
+
 /* Code for snow from https://codepen.io/Calleb/pen/dyVRvyW with minimal changes from me*/
 .snow {
   width: stretch;
@@ -182,7 +204,7 @@ canvas {
   animation: animatedBackground 10s linear infinite;
 }
 
-.snow>div {
+.snow div {
   width: stretch;
   height: stretch;
   position: absolute;
@@ -200,4 +222,5 @@ canvas {
     background-position: 0px 300px;
   }
 }
+
 /* */

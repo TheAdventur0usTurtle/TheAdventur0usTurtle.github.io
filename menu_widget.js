@@ -321,7 +321,7 @@ function setTheme(theme) {
   } else if(theme == "pink") {
     SnowContainer.hidden = true;
     document.body.style.color = "#1a1a1a";
-    document.body.style.backgroundColor = "#e9d0e1ff";
+    document.body.style.backgroundColor = "#e6c7dcff";
     h1.style.color = "#1a1a1a";
     for (let step = 0; step < paragraphs.length; step++) {
       currentParagraph = paragraphs[step];
@@ -339,9 +339,9 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#cf9cbfff";
     }
-    menu.style.backgroundColor = "#dbb9cfff";
+    menu.style.backgroundColor = "#edd9e6ff";
     menu.style.borderColor = "#d4a8c5ff";
-    button.style.setProperty("--btn-color-main", "#dbb9cfff");
+    button.style.setProperty("--btn-color-main", "#edd9e6ff");
     button.style.backgroundColor = "#d4a8c5ff";
 
 
