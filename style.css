@@ -241,7 +241,6 @@ canvas {
     transform: scaleX(-1);
 }
 
-
 /* Code for snow from https://codepen.io/Calleb/pen/dyVRvyW with minimal changes from me*/
 .snow {
   width: stretch;

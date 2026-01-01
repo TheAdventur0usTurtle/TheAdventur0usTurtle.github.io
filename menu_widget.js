@@ -167,7 +167,9 @@ const themeOrange = elementFromHtml(`
 `);
 
 const SnowContainer = document.getElementById("outer-snow-container");
-const fernContainers = document.getElementsByClassName("decoration");
+const decorationContainers = document.getElementsByClassName("decoration");
+const decorationDesign1 = document.getElementsByClassName("decoration-design-1");
+const decorationDesign2 = document.getElementsByClassName("decoration-design-2");
 
 document.head.appendChild(widgetStyle);
 SnowContainer.after(menuContainer);
@@ -188,8 +190,8 @@ let selectedTheme = "canceled";
 let menuStatus = "closed";
 menu.style.width = "0px"
 SnowContainer.hidden = true;
-for (let step = 0; step < fernContainers.length; step++) {
-      currentElement = fernContainers[step];
+for (let step = 0; step < decorationContainers.length; step++) {
+      currentElement = decorationContainers[step];
       currentElement.hidden = true;
     }
 
@@ -240,8 +242,8 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#dbcca0";
     }
-    for (let step = 0; step < fernContainers.length; step++) {
-      currentElement = fernContainers[step];
+    for (let step = 0; step < decorationContainers.length; step++) {
+      currentElement = decorationContainers[step];
       currentElement.hidden = true;
     }
 
@@ -271,9 +273,17 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#646464ff";
     }
-    for (let step = 0; step < fernContainers.length; step++) {
-      currentElement = fernContainers[step];
+    for (let step = 0; step < decorationContainers.length; step++) {
+      currentElement = decorationContainers[step];
       currentElement.hidden = true;
+    }
+    for (let step = 0; step < decorationDesign1.length; step++) {
+      currentElement = decorationDesign1[step];
+
+    }
+    for (let step = 0; step < decorationDesign2.length; step++) {
+      currentElement = decorationDesign2[step];
+
     }
                  
     menu.style.backgroundColor = "#d9d9d9ff";
@@ -302,9 +312,17 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#c9d3dfff";
     }
-    for (let step = 0; step < fernContainers.length; step++) {
-      currentElement = fernContainers[step];
-      currentElement.hidden = true;
+    for (let step = 0; step < decorationContainers.length; step++) {
+      currentElement = decorationContainers[step];
+      currentElement.hidden = false;
+    }
+    for (let step = 0; step < decorationDesign1.length; step++) {
+      currentElement = decorationDesign1[step];
+      currentElement.src = "Assets/double_snowflake.png";
+    }
+    for (let step = 0; step < decorationDesign2.length; step++) {
+      currentElement = decorationDesign2[step];
+      currentElement.src = "Assets/snowflake.png";
     }
 
     menu.style.backgroundColor = "#dde4edff";
@@ -333,9 +351,17 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#b5daacff";
     }
-    for (let step = 0; step < fernContainers.length; step++) {
-      currentElement = fernContainers[step];
+    for (let step = 0; step < decorationContainers.length; step++) {
+      currentElement = decorationContainers[step];
       currentElement.hidden = false;
+    }
+    for (let step = 0; step < decorationDesign1.length; step++) {
+      currentElement = decorationDesign1[step];
+      currentElement.src = "Assets/side_ferns.png";
+    }
+    for (let step = 0; step < decorationDesign2.length; step++) {
+      currentElement = decorationDesign2[step];
+      currentElement.src = "Assets/single_fern.png";
     }
 
     menu.style.backgroundColor = "#e0efddff";
@@ -364,9 +390,17 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#cf9cbfff";
     }
-    for (let step = 0; step < fernContainers.length; step++) {
-      currentElement = fernContainers[step];
+    for (let step = 0; step < decorationContainers.length; step++) {
+      currentElement = decorationContainers[step];
       currentElement.hidden = true;
+    }
+    for (let step = 0; step < decorationDesign1.length; step++) {
+      currentElement = decorationDesign1[step];
+
+    }
+    for (let step = 0; step < decorationDesign2.length; step++) {
+      currentElement = decorationDesign2[step];
+
     }
 
     menu.style.backgroundColor = "#edd9e6ff";
