@@ -183,13 +183,58 @@ canvas {
     margin-left: 0px;
 }
 
+.decorative-left {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute; 
+    z-index: -2;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 .decoration {
     margin-right: 0px;
     margin-left: 0px;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
     max-width: 100vw;
     min-width: 250px;
+    opacity: 1;
+}
+
+.decoration:not(#heading-decoration) {
+    @media screen and (width <= 580px) {
+        opacity: 0.3;
+    }
+}
+
+.rotate-15 {
+    transform: rotate(15deg);
+}
+
+.rotate-45 {
+    transform: rotate(45deg);
+}
+
+.rotate-315 {
+    transform: rotate(-45deg);
+}
+
+.rotate-345 {
+    transform: rotate(-15deg);
+}
+
+.tiny {
+    transform: scale(.25);
+}
+
+.smaller {
+    transform: scale(.50);
+}
+
+.small {
+    transform: scale(.75);
 }
 
 

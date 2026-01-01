@@ -167,6 +167,7 @@ const themeOrange = elementFromHtml(`
 `);
 
 const SnowContainer = document.getElementById("outer-snow-container");
+const fernContainers = document.getElementsByClassName("decoration");
 
 document.head.appendChild(widgetStyle);
 SnowContainer.after(menuContainer);
@@ -187,6 +188,10 @@ let selectedTheme = "canceled";
 let menuStatus = "closed";
 menu.style.width = "0px"
 SnowContainer.hidden = true;
+for (let step = 0; step < fernContainers.length; step++) {
+      currentElement = fernContainers[step];
+      currentElement.hidden = true;
+    }
 
 button.addEventListener("click", function(){
   if(menuStatus == "open") {
@@ -235,6 +240,11 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#dbcca0";
     }
+    for (let step = 0; step < fernContainers.length; step++) {
+      currentElement = fernContainers[step];
+      currentElement.hidden = true;
+    }
+
     menu.style.backgroundColor = "#f3ecd7";
     menu.style.borderColor = "#d0c6a6ff";
     button.style.setProperty("--btn-color-main", "#f3ecd7");
@@ -261,6 +271,11 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#646464ff";
     }
+    for (let step = 0; step < fernContainers.length; step++) {
+      currentElement = fernContainers[step];
+      currentElement.hidden = true;
+    }
+                 
     menu.style.backgroundColor = "#d9d9d9ff";
     menu.style.borderColor = "#a09e9eff";
     button.style.setProperty("--btn-color-main", "#d9d9d9ff");
@@ -287,6 +302,11 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#c9d3dfff";
     }
+    for (let step = 0; step < fernContainers.length; step++) {
+      currentElement = fernContainers[step];
+      currentElement.hidden = true;
+    }
+
     menu.style.backgroundColor = "#dde4edff";
     menu.style.borderColor = "#a4b5ceff";
     button.style.setProperty("--btn-color-main","#dde4edff");
@@ -313,6 +333,11 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#b5daacff";
     }
+    for (let step = 0; step < fernContainers.length; step++) {
+      currentElement = fernContainers[step];
+      currentElement.hidden = false;
+    }
+
     menu.style.backgroundColor = "#e0efddff";
     menu.style.borderColor = "#abcea2ff";
     button.style.setProperty("--btn-color-main", "#e0efddff");
@@ -339,6 +364,11 @@ function setTheme(theme) {
       currentElement = images[step];
       currentElement.style.borderColor = "#cf9cbfff";
     }
+    for (let step = 0; step < fernContainers.length; step++) {
+      currentElement = fernContainers[step];
+      currentElement.hidden = true;
+    }
+
     menu.style.backgroundColor = "#edd9e6ff";
     menu.style.borderColor = "#d4a8c5ff";
     button.style.setProperty("--btn-color-main", "#edd9e6ff");
