@@ -200,10 +200,10 @@ canvas {
     margin-bottom: 0px;
     max-width: 100vw;
     min-width: 250px;
-    opacity: 1;
 }
 
 .decoration:not(#heading-decoration) {
+    opacity: .5;
     @media screen and (width <= 580px) {
         opacity: 0.3;
     }
@@ -226,15 +226,19 @@ canvas {
 }
 
 .tiny {
-    transform: scale(.25);
+    transform: scale(0.25);
 }
 
 .smaller {
-    transform: scale(.50);
+    transform: scale(0.50);
 }
 
 .small {
-    transform: scale(.75);
+    transform: scale(0.75);
+}
+
+.flip {
+    transform: scaleX(-1);
 }
 
 
